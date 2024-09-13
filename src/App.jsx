@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './Page/Home'
 import JobCard from './Components/JobCard'
 import { ShowData } from './Page/ShowData'
+import UserProfile from './Page/UserProfile'
 // import { TodoList } from './Components/TodoList/TodoList'
 // import { TimerContDown } from './Components/TimerContDown'
 
@@ -20,7 +21,7 @@ function App() {
     // }
     {
       path: "/",
-      element: <ShowData/>
+      element: <UserProfile />
     }
   ])
 
