@@ -91,6 +91,13 @@ export default function UserProfile() {
         fetchUserData();
     }, []);
 
+    const classCss = {
+        inputCss: `w-[200px] h-[40px] border rounded-md px-4 py-1`,
+        addAndSaveCss: `w-[100px] h-[40px] border rounded-md px-4 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-800 text-white font-medium`,
+        deleteAndEditCss: `w-[80px] h-[40px] mr-3 rounded-md bg-slate-500 hover:bg-slate-600 active:bg-slate-700 text-white font-medium`,
+        notFoundCss: "w-full h-[300px] flex justify-center items-center text-teal-600 text-3xl mt-10"
+    }
+
     return (
         <>
             <section className="w-full h-auto">
@@ -101,7 +108,7 @@ export default function UserProfile() {
                         onChange={handleChange}
                         name="fistName"
                         placeholder="First Name"
-                        className="w-[200px] h-[40px] border rounded-md px-4 py-1"
+                        className={classCss.inputCss}
                     />
                     <input
                         type="text"
@@ -109,7 +116,7 @@ export default function UserProfile() {
                         onChange={handleChange}
                         name="lastName"
                         placeholder="Last Name"
-                        className="w-[200px] h-[40px] border rounded-md px-4 py-1"
+                        className={classCss.inputCss}
                     />
                     <input
                         type="text"
@@ -117,7 +124,7 @@ export default function UserProfile() {
                         onChange={handleChange}
                         name="mobileNumber"
                         placeholder="Mobile Number"
-                        className="w-[200px] h-[40px] border rounded-md px-4 py-1"
+                        className={classCss.inputCss}
                     />
                     <input
                         type="number"
@@ -125,11 +132,11 @@ export default function UserProfile() {
                         onChange={handleChange}
                         name="id"
                         placeholder="Id"
-                        className="w-[100px] h-[40px] border rounded-md px-4 py-1"
+                        className={classCss.inputCss}
                     />
                     <button
                         onClick={isEditing ? handleSave : handleAdd}
-                        className="w-[100px] h-[40px] border rounded-md px-4 py-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-800 text-white font-medium"
+                        className={classCss.addAndSaveCss}
                     >
                         {isEditing ? "Save" : "Add"}
                     </button>
@@ -153,13 +160,13 @@ export default function UserProfile() {
                                 <div className="absolute right-5 top-[30%]">
                                     <button
                                         onClick={() => handleEdit(user)}
-                                        className="w-[80px] h-[40px] mr-3 rounded-md bg-slate-500 hover:bg-slate-600 active:bg-slate-700 text-white font-medium"
+                                        className={classCss.deleteAndEditCss}
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => handleDelete(user.id)}
-                                        className="w-[80px] h-[40px] rounded-md bg-slate-500 hover:bg-slate-600 active:bg-slate-700 text-white font-medium"
+                                        className={classCss.deleteAndEditCss}
                                     >
                                         Delete
                                     </button>
@@ -167,7 +174,7 @@ export default function UserProfile() {
                             </li>
                         ))
                     ) : (
-                        <div className="w-full h-[300px] flex justify-center items-center text-teal-600 text-3xl mt-10">
+                        <div className={classCss.notFoundCss}>
                             User data not found!!
                         </div>
                     )}
